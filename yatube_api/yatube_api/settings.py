@@ -11,16 +11,18 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
-    'api',
-    'posts',
-    'djoser',
-    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'djoser',
+    'rest_framework',
+
+    'api',
+    'posts',
 ]
 
 MIDDLEWARE = [
