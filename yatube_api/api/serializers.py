@@ -41,8 +41,8 @@ class GroupSerializer(serializers.ModelSerializer):
 
 class FollowSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
-        read_only=True,
         slug_field='username',
+        queryset=User.objects.all(),
         default=serializers.CurrentUserDefault(),
     )
     following = serializers.SlugRelatedField(
@@ -53,7 +53,6 @@ class FollowSerializer(serializers.ModelSerializer):
     class Meta:
         fields = ('user', 'following')
         model = Follow
-        read_only_fields = ('user',)
         validators = [
             UniqueTogetherValidator(
                 queryset=Follow.objects.all(),
